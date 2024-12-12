@@ -20,6 +20,24 @@ git clone <repo_address> (or copy the repo folder to here)
 - Google OR Tools
   - Ubuntu 22.04:
     - [build from source and install](https://developers.google.com/optimization/install/cpp/source_linux)
+    - You will also need to download the binary distribution and place it in the root folder of the repo.
+### Getting or-tools (ubuntu 22.04)
+1. `sudo apt update`
+2. `sudo apt install -y build-essential cmake lsb-release`
+3. Download the binary for ubuntu 22.04 from here https://developers.google.com/optimization/install/cpp/binary_linux#ubuntu_1
+4. If you are remote SSHed then use wget with the download link (right click the download in your browser and "copy download link")
+5. `wget DOWNLOAD_LINK -O or-tools_x86_64_Ubuntu-22.04_cpp_v9.10.4067.tar.gz`
+6. make sure it is in the root of this repo.
+7. The filename `or-tools_x86_64_Ubuntu-22.04_cpp_v9.10.4067` is very critical. Otherwise you will need to change it in CMakeLists.txt
+8. now extract it `tar xvf or-tools_x86_64_Ubuntu-22.04_cpp_v9.10.4067.tar.gz`
+9. Now you must build from source and install to your system.
+10. Do this in any folder you wish: `git clone https://github.com/google/or-tools`
+11. `cd or-tools`
+12. `cmake -S . -B build -DBUILD_DEPS=ON`
+13. `cmake --build build --config Release --target all -j 16 -v`
+14. `cmake --build build --config Release --target test -v`
+15. `sudo cmake --build build --config Release --target install -v`
+16. Now it is installed and you can proceed with Building
 ## Using Docker
 If you would like to build and run everything in Docker, follow the instructions in `docker/notes.md`. Otherwise, the stack was built using Ubuntu 22.04 with ROS Humble. 
 
