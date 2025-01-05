@@ -77,7 +77,8 @@ The parameters include
 * `tsp_method`: Options are greedy, hc, sa, bnb, and ortools (recommended).
 * `tsp_solver_allowed_time`: Allowed time for the tsp solver. Used by hc, sa, bnb, and ortools. 
 * `rviz_scale`: Scales the rviz visualizations. 
-* `export_to_yaml`: Boolean to export the final trajectory to yaml or not. 
+* `export_to_yaml`: Boolean to export the final trajectory to yaml or not.
+  * places it in `./install/aerial_inspection_planner/share/aerial_inspection_planner/inspection_path.yaml`
 
 ## ROS2 Tips, Tricks, and Notes
 Build options
